@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Maps extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,16 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data = array();
+
+		$this->local_stylesheets = array(
+			'home.css'
+		);
+		$this->local_javascripts = array(
+			'home.js'
+		);
+
+		$content = $this->load->view( 'maps/index', $data, true );
+    $this->render($content);
 	}
 }
